@@ -1,3 +1,4 @@
+const TEXT_ELEMENT = "TEXT ELEMENT";
 export default {
   render(elem, parentDom) {
     const { type, props } = elem;
@@ -27,5 +28,19 @@ export default {
       this.render(childElem, elementToRender);
     });
     parentDom.appendChild(elementToRender);
+  },
+  createElement(type, config, ...args) {
+    const allChildren = args.length ? [].concat(...args) : [];
+    let isObject = obj => obj instanceof Object;
+    let props = Object.assign({}, config);
+    props.children = allChildren
+      .filter(child => child != null && child !== false)
+      .map(child => (isObject(child) ? child : this.createTextElement(child)));
+
+    let elem = { type, props };
+    return elem;
+  },
+  createTextElement(value) {
+    return this.createElement(TEXT_ELEMENT, { nodeValue: value });
   }
 };

@@ -9,8 +9,8 @@ It is a good way to know how React and React-DOM work under the hood.
 Features to Add:
 
 - **_Rendering DOM elements_** _[Completed]_
-- **_Element creation and JSX_** _[Started Working...]_
-- **_Instances, reconciliation and virtual DOM_** _[Not Started Working Yet...]_
+- **_Element creation and JSX_** _[Completed]_
+- **_Instances, reconciliation and virtual DOM_** _[Started Working...]_
 - **_Components and state_** _[Not Started Working Yet...]_
 - **_Fiber: Incremental reconcilation_** _[Not Started Working Yet...]_
 - **_Old Browser Support_** _[Completed...As I am using Webpack]_
