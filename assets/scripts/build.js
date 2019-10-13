@@ -90,10 +90,23 @@
 /*!**************************!*\
   !*** ./src/App/index.js ***!
   \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("\n\n//# sourceURL=webpack:///./src/App/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Didact_didact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Didact/didact */ \"./src/Didact/didact.js\");\n\nvar element = {\n  type: \"div\",\n  props: {\n    id: \"container\",\n    children: [{\n      type: \"input\",\n      props: {\n        value: \"input\",\n        type: \"text\"\n      }\n    }, {\n      type: \"a\",\n      props: {\n        href: \"/link\"\n      }\n    }, {\n      type: \"span\",\n      props: {\n        children: [{\n          type: \"TEXT ELEMENT\",\n          props: {\n            nodeValue: \"Something\"\n          }\n        }]\n      }\n    }]\n  }\n};\n_Didact_didact__WEBPACK_IMPORTED_MODULE_0__[\"default\"].render(element, document.getElementById(\"root\"));\n\n//# sourceURL=webpack:///./src/App/index.js?");
+
+/***/ }),
+
+/***/ "./src/Didact/didact.js":
+/*!******************************!*\
+  !*** ./src/Didact/didact.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  render: function render(elem, parentDom) {\n    var _this = this;\n\n    var type = elem.type,\n        props = elem.props;\n    var elementToRender = type === \"TEXT ELEMENT\" ? document.createTextNode(\"\") : document.createElement(type);\n\n    var isEventListener = function isEventListener(propName) {\n      return propName.startsWith(\"on\");\n    };\n\n    Object.keys(props).filter(isEventListener).forEach(function (eventListener) {\n      var eventType = eventListener.slice(2).toLowerCase();\n      elementToRender.addEventListener(eventType, props[eventListener]);\n    });\n\n    var isAttribute = function isAttribute(propName) {\n      return !isEventListener(propName) && propName !== \"children\";\n    };\n\n    Object.keys(props).filter(isAttribute).forEach(function (attribute) {\n      elementToRender[attribute] = props[attribute];\n    });\n    var children = props.children || [];\n    children.forEach(function (childElem) {\n      _this.render(childElem, elementToRender);\n    });\n    parentDom.appendChild(elementToRender);\n  }\n});\n\n//# sourceURL=webpack:///./src/Didact/didact.js?");
 
 /***/ })
 
